@@ -20,13 +20,6 @@
   justify-content:  center;
 }
 
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -42,6 +35,18 @@
 .todo-image{
   text-align: center;
   margin-top: 15px;
+}
+
+.todo-data{
+  border: 1px solid gray;
+  padding: 15px;
+  margin: 10px;
+}
+
+.todo-item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 @media (prefers-reduced-motion: no-preference) {
