@@ -1,13 +1,16 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
- 
+
 import { useState } from 'react';
 
 const TodoNew = (props) => {
-  const { addNewTodo } = props;
-  const [valueInput, setValueInput] = useState('');
-  const handleClick = () => {
+  const {id, addNewTodo, deleteTodo } = props;
+  const [valueInput, setValueInput] = useState('Minh Ho');
+  const handleAddNewClick = () => {
     addNewTodo(valueInput);
+    setValueInput('');
   };
+
   const handleOnChange = (name) => {
     setValueInput(name);
   };
@@ -17,8 +20,9 @@ const TodoNew = (props) => {
         <input
           type="text"
           onChange={(event) => handleOnChange(event.target.value)}
+          value={valueInput}
         />
-        <button style={{ cursor: 'pointer' }} onClick={handleClick}>
+        <button style={{ cursor: 'pointer' }} onClick={handleAddNewClick}>
           Add
         </button>
         <div>My text input = {valueInput} </div>

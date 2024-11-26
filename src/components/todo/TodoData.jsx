@@ -1,14 +1,25 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 const TodoData = (props) => {
-  const { name, data } = props;
-  console.log('>>>> check props: ', props);
+  const {id, todoList, deleteTodo } = props;
+  const handleDeleteClick = () => {
+    deleteTodo(id);
+    // setValueInput('');
+  };
+  console.log('>>>> check todoList: ', todoList);
   return (
     <>
       <div className="todo-data">
-        <div>Learning React</div>
-        <div>Watching Movies</div>
-        <div>{name}</div>
-        <div>{data.address}</div>
+        {todoList.map((item) => {
+          return (
+            <>
+              <div className={`todo-item ${item.id}`} key={item.id}>
+                <div style={{margin: "10px 0px"}}>{item.name}</div>
+                <button style={{cursor: 'pointer'}} onClick={() => deleteTodo(item.id)}>Delete</button>
+              </div>
+            </>
+          );
+        })}
         <div>{JSON.stringify(props.todoList)}</div>
       </div>
     </>
